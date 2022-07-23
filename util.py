@@ -48,3 +48,4 @@ def get_connection(db_type, db_host, db_name, db_user, db_pass):
 def get_tables(path):
     tables = pd.read_csv(path, sep=':')
     return tables.query('to_be_loaded == "yes"')
+    a_tables
