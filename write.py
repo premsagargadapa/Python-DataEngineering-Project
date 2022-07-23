@@ -39,3 +39,18 @@ def load_data(db_details, data, column_names, table_name):
     insert_data(connection, cursor, query, data)
 
     connection.close()
+
+    def truncate_table(db_details, table_name):
+        target_db = db_details['TARGET_DB']
+
+        connection = get_connection(db_type=target_db['DB_TYPE'],
+                                    db_host=target_db['DB_HOST'],
+                                    db_name=target_db['DB_NAME'],
+                                    db_user=target_db['DB_USER'],
+                                    db_pass=target_db['DB_PASS']
+                                    )
+        query = f'TRUNCATE TABLE {table_name}'
+        cursor = connection.cursor()
+        cursor.execute(query)
+
+        connection.close()

@@ -3,7 +3,7 @@ from loguru import logger
 
 from util import get_tables, load_db_details
 from read import read_table
-from write import load_data
+from write import load_data,
 
 
 def main():
